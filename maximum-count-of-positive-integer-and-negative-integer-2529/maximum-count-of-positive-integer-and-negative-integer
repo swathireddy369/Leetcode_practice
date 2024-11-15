@@ -1,0 +1,37 @@
+class Solution {
+    public int maximumCount(int[] nums) {
+        int low=0;
+        int high = nums.length-1;
+        int posCount=0;
+        int negCount=0;
+        if(nums[low] > 0 && nums[high] > 0){
+                posCount= nums.length;
+            }else{
+             while(low <= high){
+            int mid=low+(high-low)/2;
+          if(nums[mid] > 0){
+             for(int i=mid;i<=high;i++)   {
+               posCount = posCount+1;
+                }
+        
+         high=mid-1;
+               }  
+               else {
+                 for(int i=low;i<=mid;i++)   {
+                     if(nums[i] != 0){
+                     negCount = negCount+1;
+                    }
+                  } 
+               
+                low=mid+1;
+            }
+            }
+            }
+             if(posCount > negCount){
+            return posCount;
+        }else{
+            return negCount;
+        }
+       
+    }
+}
