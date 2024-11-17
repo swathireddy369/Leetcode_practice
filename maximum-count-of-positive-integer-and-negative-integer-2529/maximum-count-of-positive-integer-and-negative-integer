@@ -13,15 +13,14 @@ class Solution {
              for(int i=mid;i<=high;i++)   {
                posCount = posCount+1;
                 }
-        
-         high=mid-1;
+               high=mid-1;
                }  
                else {
                  for(int i=low;i<=mid;i++)   {
                      if(nums[i] != 0){
                      negCount = negCount+1;
                     }
-                  } 
+                } 
                
                 low=mid+1;
             }
