@@ -6,31 +6,40 @@ class Solution {
         int negCount=0;
         if(nums[low] > 0 && nums[high] > 0){
                 posCount= nums.length;
-            }else{
+            }
+            if(nums[low] <0 && nums[high] < 0){
+                negCount = nums.length;
+            }
+            else{
              while(low <= high){
+               
             int mid=low+(high-low)/2;
           if(nums[mid] > 0){
-             for(int i=mid;i<=high;i++)   {
-               posCount = posCount+1;
-                }
-               high=mid-1;
+              posCount = high-mid+1;
+                 System.out.println("if"+low+high+mid+posCount);
+                 high=mid-1;
                }  
                else {
-                 for(int i=low;i<=mid;i++)   {
-                     if(nums[i] != 0){
-                     negCount = negCount+1;
+                 if(nums[mid] != 0 && nums[low] < 0)   {
+                    negCount = low+mid+1;
+                   System.out.println("else"+low+high+mid+negCount);
+                } else{
+                    if(nums[mid]>nums[mid-1]){
+                         negCount = low+mid;
+                          System.out.println("elseelse"+low+high+posCount);
                     }
-                } 
-               
-                low=mid+1;
+             
+                }
+                 low=mid+1;
             }
             }
             }
+            System.out.println("========"+posCount+negCount);
              if(posCount > negCount){
             return posCount;
-        }else{
-            return negCount;
-        }
-       
+                }else{
+                    return negCount;
+                }
+            
     }
 }
