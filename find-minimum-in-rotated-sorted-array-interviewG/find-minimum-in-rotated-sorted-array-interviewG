@@ -1,0 +1,16 @@
+
+
+public class MyClass {
+  public static void main(String args[]) {
+   int[] arr=new int[]{1,2,3,4,6,7,8};
+   for (int i=0;i<arr.length-1;i++){
+       int previosValue=(arr[i]+arr[i+1])/2;
+       if(previosValue != arr[i]){
+           System.out.println("==miss=="+previosValue);
+        //   return previosvalue;
+       }
+        System.out.println("===="+previosValue);
+   }
+
+  }
+}

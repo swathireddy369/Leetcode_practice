@@ -1,0 +1,22 @@
+
+public class MyClass {
+  public static void main(String args[]) {
+   int[] nums=new int[]{3,4,5,6,8};
+   int low= 0;
+   int high=nums.length-1;
+   while(high - low >= 2){
+       int mid = low+(high-low)/2;
+       int lowDiff = nums[low] - low;
+       int midDiff = nums[mid] - mid;
+       int highDiff = nums[high] - high;
+       if(lowDiff != midDiff){
+           high=mid;
+       }else if( midDiff != highDiff){
+           low=mid;
+       }
+   }
+   System.out.println("missing"+low+""+high+""+nums[low]+""+nums[high]);
+   int missingValue= (nums[low]+nums[high])/2;
+   System.out.println("missing"+missingValue);   
+  }
+}
