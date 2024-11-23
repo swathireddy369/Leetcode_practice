@@ -1,0 +1,28 @@
+class Solution {
+    int[] primeNumbers;
+    public boolean isAnagram(String s, String t) {
+        
+      this.primeNumbers =new int[] {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,81,83,89,97,101,103};
+
+         if (s.length() != t.length()) return false;
+        long sortedString1 =primeProduct(s);
+     
+        long sortedString2 =primeProduct(t);
+          System.out.println("==="+sortedString1+"    "+sortedString2);
+          if(sortedString1 == sortedString2){
+            return true;
+          }
+          return false;
+    }
+    public long primeProduct(String str){
+        long result=1;
+        for (int i=0; i < str.length() ;i++){
+            char c= str.charAt(i);
+            // System.out.println("==="+c+""+primeNumbers[c-'a']);
+            result= result * primeNumbers[c-'a'];
+            
+        }
+         return result;  
+    }
+   
+}
