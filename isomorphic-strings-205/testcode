@@ -1,0 +1,37 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        String finalSt="";
+        HashMap<Character,Character> smap=new HashMap<>();
+        HashMap<Character,Character> tmap=new HashMap<>();
+        char[] charSArr=s.toCharArray();
+        char[] charTArr=t.toCharArray();
+        for(int i=0;i<s.length();i++){
+            if(!smap.containsKey(s.charAt(i))){
+                 smap.put(s.charAt(i),t.charAt(i));
+                 charSArr[i] = smap.get(s.charAt(i));
+            }else{
+                charSArr[i] = smap.get(s.charAt(i));
+            }
+           
+            System.out.println("=========="+Arrays.toString(charSArr));
+          
+        }
+        String finalSSt=String.valueOf(charSArr);
+        for(int i=0;i<t.length();i++){
+            if(!tmap.containsKey(t.charAt(i))){
+                     tmap.put(t.charAt(i),s.charAt(i));
+                    charTArr[i] = tmap.get(t.charAt(i));
+            }else{
+                       charTArr[i] = tmap.get(t.charAt(i));
+            }
+        }
+                 String finalTSt=String.valueOf(charTArr);
+        System.out.println("=========="+finalSSt+" "+finalTSt);
+        if(finalSSt.compareTo(t)  == 0 &&  finalTSt.compareTo(s) ==0){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+}

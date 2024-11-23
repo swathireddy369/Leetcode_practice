@@ -1,0 +1,32 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        HashMap<Character,Character> smap=new HashMap<>();
+        HashMap<Character,Character> tmap=new HashMap<>();
+        char[] charSArr=s.toCharArray();
+        char[] charTArr=t.toCharArray();
+        for(int i=0;i<s.length();i++){
+            if(!smap.containsKey(s.charAt(i))){
+                 smap.put(s.charAt(i),t.charAt(i));
+                 charSArr[i] = smap.get(s.charAt(i));
+            }
+                charSArr[i] = smap.get(s.charAt(i));
+               }
+       
+        for(int i=0;i<t.length();i++){
+            if(!tmap.containsKey(t.charAt(i))){
+                     tmap.put(t.charAt(i),s.charAt(i));
+                    charTArr[i] = tmap.get(t.charAt(i));
+            }
+                       charTArr[i] = tmap.get(t.charAt(i));
+            
+        }
+         String finalSSt=String.valueOf(charSArr);
+         String finalTSt=String.valueOf(charTArr);
+        if(finalSSt.compareTo(t)  == 0 &&  finalTSt.compareTo(s) ==0){
+            return true;
+        }
+            return false;
+        
+        
+    }
+}
