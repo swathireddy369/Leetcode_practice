@@ -17,7 +17,6 @@ class Solution {
                  sSet.add(wordArray[i]);
          }
         }
-        
         return true;
     }
 }

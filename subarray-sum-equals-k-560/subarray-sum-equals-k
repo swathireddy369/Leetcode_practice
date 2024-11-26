@@ -1,0 +1,22 @@
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        HashMap<Integer,Integer> sMap=new HashMap<>();
+        int rSum=0;
+        int count=0;
+        sMap.put(0,1);
+        for(int i=0;i<nums.length;i++){
+            rSum+=nums[i];
+            //y=x-z;
+            if(sMap.containsKey(rSum-k)){
+                count+=sMap.get(rSum-k);
+            }
+            if(!sMap.containsKey(rSum)){
+                sMap.put(rSum,1);
+            }else{
+                  sMap.put(rSum,sMap.get(rSum)+1);
+            }
+            System.out.println("sMap"+sMap);
+        }
+        return count;
+    }
+}
