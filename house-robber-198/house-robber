@@ -1,0 +1,13 @@
+class Solution {
+    public int rob(int[] nums) {
+        int idx=0;
+        int res=helper(nums,idx);
+        return res;
+    }
+    public int helper(int[] nums, int idx){
+        if(idx >= nums.length) return 0;
+        int case1= nums[idx] + helper(nums,idx+2);
+        int case0= 0+ helper(nums,idx+1);
+        return Math.max(case0,case1);
+    }
+}
