@@ -1,0 +1,30 @@
+// "static void main" must be defined in a public class.
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+        int[][] costs ={
+            {17, 2, 17},
+            {16, 14, 5},
+            {12, 3, 19},
+            {15, 4, 18}
+        };
+        int costR = helper(costs,0,0);
+        int costB = helper(costs,0,1);
+        int costG = helper(costs,0,2);
+        int res = Math.min(costR,Math.min(costB,costG));
+        System.out.println("======"+res);
+        // return res;
+    }
+    public static int helper(int[][] costs,int idx,int c){
+        if(idx == costs.length ) return 0;
+        if(c == 0){
+             return costs[idx][0] + Math.min(helper(costs,idx+1,1),helper(costs,idx+1,2));
+        }else if( c == 1){
+             return costs[idx][1] + Math.min(helper(costs,idx+1,0),helper(costs,idx+1,2));
+        }else if(c == 2){
+            return costs[idx][2] + Math.min(helper(costs,idx+1,0),helper(costs,idx+1,1));
+        }
+        return 6779;
+       
+    }
+}

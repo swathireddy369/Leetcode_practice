@@ -1,0 +1,18 @@
+class Solution {
+    public int change(int amount, int[] coins) {
+        int idx = 0;
+        int res=helper(amount,coins,idx);
+        return res;
+    }
+     public int helper(int amount,int[] coins,int idx){
+        if(amount == 0){
+            return 1;
+        } if(idx == coins.length || amount < 0 ){
+            return 0;
+        }
+          int case1=  helper(amount-coins[idx] ,coins,idx);
+          int case2=  helper(amount,coins,idx+1);
+    
+        return case1+case2;
+     }
+}
