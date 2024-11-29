@@ -1,0 +1,14 @@
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int n =cost.length;
+        int idx1=0;
+        int idx2=1;
+        int res1 = helper(cost,idx1);
+        int res2 = helper(cost,idx2); 
+        return Math.min(res1,res2);
+    }
+    public int helper(int[] cost,int idx){
+        if(idx >= cost.length) return 0;
+    return Math.min(cost[idx]+helper(cost,idx+1),cost[idx]+helper(cost,idx+2));
+    }
+}
