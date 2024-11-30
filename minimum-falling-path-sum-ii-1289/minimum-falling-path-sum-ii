@@ -1,0 +1,48 @@
+class Solution {
+    public int minFallingPathSum(int[][] grid) {
+        int r=grid.length;
+        int c=grid[0].length;
+
+        for(int i=r-2; i >= 0; i--){
+            
+            for(int j=0; j<c; j++){
+
+                if(j == 0){
+                    int min=Integer.MAX_VALUE;
+                    for(int k = j+1; k < c; k++){
+                     min=Math.min(min,grid[i+1][k]);
+                    }
+                        grid[i][j] = grid[i][j] + min;
+                }else if(j == c-1){
+                     int min=Integer.MAX_VALUE;
+                   
+                     for(int k = 0;k < c-1;k++){
+                   min=Math.min(min,grid[i+1][k]);
+                    }
+                        grid[i][j]  =grid[i][j] +min; 
+                }else{
+                     int leftMin=Integer.MAX_VALUE;
+                     int RightMin=Integer.MAX_VALUE;
+                     
+                     for(int k= 0;k < j;k++ ){
+                  leftMin=Math.min(leftMin,grid[i+1][k]);
+                     }
+                     for(int k= j+1;k< c;k++ ){
+                   RightMin=Math.min(RightMin,grid[i+1][k]);
+                     }
+                     grid[i][j] = grid[i][j] +Math.min(leftMin,RightMin);
+                }
+            }
+        }
+       
+    
+     int finalMin=Integer.MAX_VALUE;
+    for(int j=0; j< c ; j++){
+       finalMin=Math.min(finalMin,grid[0][j]);
+      
+    }
+     return finalMin;
+    }
+      
+  
+}
