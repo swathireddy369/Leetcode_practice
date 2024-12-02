@@ -22,8 +22,5 @@ class Solution {
            min= Math.min(min,matrix[0][j]);
         }
         return min;
-     
-    
-        
     }
 }
