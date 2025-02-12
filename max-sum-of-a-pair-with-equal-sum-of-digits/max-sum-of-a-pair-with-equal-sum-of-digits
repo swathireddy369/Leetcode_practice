@@ -1,0 +1,33 @@
+class Solution {
+    public int maximumSum(int[] nums) {
+        int max=-1;
+        int n=nums.length;
+        HashMap<Integer,Integer> sMap=new HashMap<>();
+        for(int i=0;i<n;i++){
+            int Sum1=calSum(nums[i]);
+            if(sMap.containsKey(Sum1)){
+                  int finalSum=nums[sMap.get(Sum1)]+nums[i]; 
+                   max=Math.max(max,finalSum);
+                if(nums[sMap.get(Sum1)] < nums[i]){
+                     sMap.put(Sum1,i);
+                }
+             
+            }else {
+            sMap.put(Sum1,i);
+            }
+        }
+         return max;
+       
+        
+    }
+    public int calSum(int num){
+        String str=Integer.toString(num);
+        int count=0;
+         for(char c:str.toCharArray()){
+            // int n=c - '0';
+            // System.out.println("=="+str+"       "+c+" num"+n);
+            count +=Character.getNumericValue(c);
+        }
+        return count;
+    }
+}

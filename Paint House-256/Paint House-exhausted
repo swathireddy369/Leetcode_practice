@@ -7,7 +7,7 @@ public class Main {
             {16, 14, 5},
             {12, 3, 19},
             {15, 4, 18}
-        };
+        }; 
         int costR = helper(costs,0,0);
         int costB = helper(costs,0,1);
         int costG = helper(costs,0,2);

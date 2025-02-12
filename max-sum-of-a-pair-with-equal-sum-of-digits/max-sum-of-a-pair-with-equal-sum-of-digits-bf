@@ -1,0 +1,31 @@
+class Solution {
+    public int maximumSum(int[] nums) {
+        int max=0;
+        int n=nums.length;
+        for(int i=0;i<n-1;i++){
+            int Sum1=calSum(nums[i]);
+             for(int j=i+1;j<n;j++){
+                 int Sum2=calSum(nums[j]);
+                 System.out.println("check "+Sum1+"       "+Sum2);
+                 if(Sum1==Sum2){
+                      System.out.println("ch--eck "+Sum1+"       "+Sum2);
+                     int finalSum=nums[i]+nums[j]; 
+                   max=Math.max(max,finalSum);
+                 }
+             }
+        }
+        if(max > 0) return max;
+        return -1;
+        
+    }
+    public int calSum(int num){
+        String str=Integer.toString(num);
+        int count=0;
+         for(char c:str.toCharArray()){
+ int n=c - '0';
+            // System.out.println("=="+str+"       "+c+" num"+n);
+            count +=n;
+        }
+        return count;
+    }
+}
